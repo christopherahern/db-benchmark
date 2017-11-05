@@ -34,3 +34,17 @@ Run for each databse:
 ```
 python benchmark -db postgres
 ```
+
+# Profiling
+
+Generate profiling:
+```
+python -m cProfile  -o postgres.prof -s time benchmark.py -db postgres
+python -m cProfile  -o timescaledb.prof -s time benchmark.py -db timescaledb
+```
+
+Visualize profiling results:
+```
+snakeviz postgres.prof
+snakeviz timescaledb.prof
+```
