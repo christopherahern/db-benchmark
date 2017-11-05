@@ -14,3 +14,5 @@ services:
     image: timescale/timescaledb
     ports:
       - "6543:5432"
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
