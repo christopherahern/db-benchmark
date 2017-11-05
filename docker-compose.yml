@@ -6,15 +6,11 @@ services:
     image: postgres:latest
     ports:
       - "5432:5432"
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
 
   timescaledb:
     container_name: timescaledb
     image: timescale/timescaledb
     ports:
       - "6543:5432"
-
-  mariadb:
-    container_name: mariadb
-    image: mariadb:latest
-    ports:
-      - "3306:3306"
